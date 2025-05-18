@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getUserFromRequest } from '@/lib/auth-middleware'
 
 
-export async function DELETE(req: NextRequest, { params }: { params: { commentId: string } }) {
+export async function DELETE(req: NextRequest, { params }: any) {
   const user = await getUserFromRequest(req)as any;
   if (!user) return NextResponse.json({ status: 'failed', message: 'Unauthorized' }, { status: 401 })
 

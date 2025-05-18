@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import { getUserFromRequest } from '@/lib/auth-middleware';
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+async function deleteForum(req: NextRequest, { params }: any) {
   try {
     const user = await getUserFromRequest(req) as any;
     if (!user) {
@@ -29,3 +29,5 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     return NextResponse.json({ status: 'failed', message: 'Internal server error' }, { status: 500 });
   }
 }
+
+export const DELETE = deleteForum

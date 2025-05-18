@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
 import { getUserFromRequest } from '@/lib/auth-middleware'
 
-export async function POST(req: NextRequest, { params }: { params: { forumId: string } }) {
+export async function POST(req: NextRequest, { params }: any) {
   const user = await getUserFromRequest(req) as any
   if (!user)
     return NextResponse.json({ status: 'failed', message: 'Unauthorized' }, { status: 401 })

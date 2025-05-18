@@ -12,7 +12,7 @@ import { ArrowLeft, X } from "lucide-react"
 import DashboardLayout from "@/app/dashboard-layout"
 import axiosInstance from "@/lib/axios-instance"
 
-export default function EditForumPage({ params }: { params: { id: string } }) {
+export default function EditForumPage({ params }: any) {
   const router = useRouter()
 
   // const [forum, setForum] = useState<Forum | null>(null)

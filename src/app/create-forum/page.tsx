@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { getCurrentUser, tags as allTags } from "@/lib/data"
+import {  tags as allTags } from "@/lib/data"
 import type { User, Tag } from "@/lib/data"
 import Navbar from "@/components/navbar"
 import { Button } from "@/components/ui/button"

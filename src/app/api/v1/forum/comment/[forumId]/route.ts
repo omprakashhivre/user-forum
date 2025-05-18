@@ -2,7 +2,8 @@ import { prisma } from '@/lib/prisma'
 import { NextRequest, NextResponse } from 'next/server'
 import { getUserFromRequest } from '@/lib/auth-middleware'
 
-export async function POST(req: NextRequest, { params }: { params: { forumId: string } }) {
+export async function POST(req: NextRequest, { params }: any) {
+  const { forumId } = params;
   const user = await getUserFromRequest(req) as any;
   if (!user) return NextResponse.json({ status: 'failed', message: 'Unauthorized' }, { status: 401 })
 
@@ -12,7 +13,7 @@ export async function POST(req: NextRequest, { params }: { params: { forumId: st
   const comment = await prisma.comment.create({
     data: {
       content,
-      forumId: params.forumId,
+      forumId: forumId,
       userId: user.id,
     },
   })

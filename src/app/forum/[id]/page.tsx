@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { getForum, getForumComments, getCurrentUser } from "@/lib/data"
+// import { getForum, getForumComments, getCurrentUser } from "@/lib/data"
 import type { Forum, Comment, User, Tag } from "@/lib/data"
 import Navbar from "@/components/navbar"
 // import { CommentCard } from "@/components/comment-card"
@@ -28,7 +28,7 @@ import DashboardLayout from "@/app/dashboard-layout"
 import axiosInstance from "@/lib/axios-instance"
 import { toast } from "sonner"
 
-export default function ForumPage({ params }: { params: { id: string } }) {
+export default function ForumPage({ params }: any) {
     const { id } = params
     const [forum, setForum] = useState<Forum | null>(null)
     const [comments, setComments] = useState<Comment[]>([])
